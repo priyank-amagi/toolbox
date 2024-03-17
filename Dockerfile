@@ -13,4 +13,4 @@ COPY ./bin/toolbox /app/toolbox
 
 ENTRYPOINT ["/app/toolbox"]
 
-# CMD ["api"]
+CMD ["toolbox todos list"]

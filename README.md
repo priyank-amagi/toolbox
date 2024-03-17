@@ -16,7 +16,7 @@ cd toolbox
 
 Build the CLI tool:
 ```
-go build -o bin/toolbox
+go build -o bin/toolbox (with GOOS=linux GOARCH=amd64 if you want to run inside docker)
 ```
 
 Set an environment variable:
