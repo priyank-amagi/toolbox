@@ -13,6 +13,7 @@ const (
 	todosRoute = "/todos"
 )
 
+//go:generate mockery --name ITodoSvc --filename=todos.go
 type ITodoSvc interface {
 	GetTodos() (todos []Todo, err error)
 }
