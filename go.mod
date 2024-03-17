@@ -1,4 +1,4 @@
-module priyank.com/toolbox
+module github.com/priyank-amagi/toolbox
 
 go 1.21.4
 

@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"priyank.com/toolbox/lib/api"
+	"github.com/priyank-amagi/toolbox/lib/api"
 )
 
 const (

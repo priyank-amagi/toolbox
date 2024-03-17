@@ -3,9 +3,9 @@ package todos
 import (
 	"fmt"
 
+	"github.com/priyank-amagi/toolbox/config"
+	"github.com/priyank-amagi/toolbox/pkg/todos"
 	"github.com/spf13/cobra"
-	"priyank.com/toolbox/config"
-	"priyank.com/toolbox/pkg/todos"
 )
 
 var (

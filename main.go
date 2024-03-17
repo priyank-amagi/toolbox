@@ -1,6 +1,6 @@
 package main
 
-import "priyank.com/toolbox/cmd"
+import "github.com/priyank-amagi/toolbox/cmd"
 
 func main() {
 	cmd.Execute()

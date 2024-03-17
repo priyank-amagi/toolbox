@@ -3,8 +3,8 @@ package cmd
 import (
 	"os"
 
+	"github.com/priyank-amagi/toolbox/cmd/todos"
 	"github.com/spf13/cobra"
-	"priyank.com/toolbox/cmd/todos"
 )
 
 // rootCmd represents the base command when called without any subcommands
