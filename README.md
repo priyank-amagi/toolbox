@@ -24,6 +24,12 @@ Set an environment variable:
 JSON_API_HOST=https://jsonplaceholder.typicode.com
 ```
 
+Or 
+Simply install using
+```
+go install github.com/priyank-amagi/toolbox
+```
+
 # Usage
 Toolbox provides the following subcommands and options:
 
