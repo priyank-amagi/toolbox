@@ -1,5 +1,5 @@
 # Toolbox CLI
-Toolbox is a command-line interface (CLI) tool designed to help you manage and organize your tasks efficiently. It provides a set of commands to handle todos effectively.
+Toolbox is a command-line interface (CLI) tool designed to help you manage and organize your tasks efficiently. It provides a set of commands to handle various things effectively.
 
 # Installation
 To install Toolbox, follow these steps:
@@ -19,6 +19,10 @@ Build the CLI tool:
 go build -o bin/toolbox
 ```
 
+Set an environment variable:
+```
+JSON_API_HOST=https://jsonplaceholder.typicode.com
+```
 
 # Usage
 Toolbox provides the following subcommands and options:
