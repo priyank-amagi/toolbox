@@ -1,4 +1,4 @@
-package api
+package http_helper
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 )
 
 // SendHTTPRequest sends a generic HTTP request.
-func SendHTTPRequest(httpMethod, apiEndpoint, resourcePath string, requestHeaders map[string]string, queries []string, requestBody string) (*http.Response, error) {
+func SendHTTPRequest(httpSvc IHttpSvc, httpMethod, apiEndpoint, resourcePath string, requestHeaders map[string]string, queries []string, requestBody string) (*http.Response, error) {
 	// Validate HTTP method
 	method := http.MethodGet // Default to GET
 	switch httpMethod {
@@ -46,7 +46,5 @@ func SendHTTPRequest(httpMethod, apiEndpoint, resourcePath string, requestHeader
 	for key, value := range requestHeaders {
 		request.Header.Add(key, value)
 	}
-
-	client := http.DefaultClient
-	return client.Do(request)
+	return httpSvc.Do(request)
 }

@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/priyank-amagi/toolbox/lib/api"
+	"github.com/priyank-amagi/toolbox/lib/http_helper"
 )
 
 const (
@@ -20,16 +20,17 @@ type ITodoSvc interface {
 
 type TodoSvc struct {
 	hostname string
+	httpSvc  http_helper.IHttpSvc
 }
 
 var _ ITodoSvc = (*TodoSvc)(nil)
 
-func NewTodoSvc(hostname string) *TodoSvc {
-	return &TodoSvc{hostname: hostname}
+func NewTodoSvc(hostname string, httpSvc http_helper.IHttpSvc) *TodoSvc {
+	return &TodoSvc{hostname: hostname, httpSvc: httpSvc}
 }
 
 func (tS *TodoSvc) GetTodos() ([]Todo, error) {
-	res, err := api.SendHTTPRequest("GET", tS.hostname, todosRoute, map[string]string{}, []string{}, "")
+	res, err := http_helper.SendHTTPRequest(tS.httpSvc, "GET", tS.hostname, todosRoute, map[string]string{}, []string{}, "")
 	if err != nil {
 		return nil, err
 	}

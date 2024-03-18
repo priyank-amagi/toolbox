@@ -1,4 +1,4 @@
-package api
+package http_helper
 
 import (
 	"net/http"
@@ -17,7 +17,16 @@ func TestSendHTTPRequest(t *testing.T) {
 		expectedError  string
 	}{
 		{
-			name:          "Invalid schema",
+			name:           "Invalid URL",
+			httpMethod:     http.MethodGet,
+			apiEndpoint:    "://invalid-url",
+			resourcePath:   "/test",
+			requestHeaders: map[string]string{},
+			requestBody:    "",
+			expectedError:  "parse \"://invalid-url\": missing protocol scheme",
+		},
+		{
+			name:          "Invalid Schema",
 			httpMethod:    http.MethodGet,
 			apiEndpoint:   "htt//example.com",
 			resourcePath:  "/test",
@@ -58,9 +67,14 @@ func TestSendHTTPRequest(t *testing.T) {
 		},
 	}
 
+	var httpSvc IHttpSvc
+	httpSvc = NewHttpSvc()
+	// we can replace original httpSvc with mocked http service as belows
+	// httpSvc = http_mocks.NewIHttpSvc(t)
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			res, err := SendHTTPRequest(tt.httpMethod, tt.apiEndpoint, tt.resourcePath, tt.requestHeaders, tt.queries, tt.requestBody)
+			res, err := SendHTTPRequest(httpSvc, tt.httpMethod, tt.apiEndpoint, tt.resourcePath, tt.requestHeaders, tt.queries, tt.requestBody)
 
 			if tt.expectedError != "" {
 				if err == nil || err.Error() != tt.expectedError {

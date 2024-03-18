@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/priyank-amagi/toolbox/config"
+	"github.com/priyank-amagi/toolbox/lib/http_helper"
 	"github.com/priyank-amagi/toolbox/pkg/todos"
 	"github.com/spf13/cobra"
 )
@@ -21,7 +22,7 @@ var listCmd = &cobra.Command{
 	Short: "List is a command that lists todos based on provided flags",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		todoSvc = todos.NewTodoSvc(config.GetJsonApiHost())
+		todoSvc = todos.NewTodoSvc(config.GetJsonApiHost(), http_helper.NewHttpSvc())
 		listTodos()
 	},
 }
