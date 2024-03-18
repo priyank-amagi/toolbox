@@ -13,4 +13,4 @@ COPY ./bin/toolbox /app/toolbox
 
 ENTRYPOINT ["/app/toolbox"]
 
-# CMD ["todos list"]
+CMD ["todos", "list"]
