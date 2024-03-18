@@ -24,8 +24,8 @@ Lists todos based on specified options.
 
 Options
 - -c <count>: Specifies the total number of todos to be listed.
-- -t <todo-type>: Specifies the type of todos to be listed (complete, incomplete, or both).
-- -f <filter-type>: Specifies the filter type for todo index (even, odd, or both).
+- -t <todo-type>: Specifies the type of todos to be listed (complete, incomplete | <u>*to list both, leave it blank*</u>).
+- -f <filter-type>: Specifies the filter type for todo index (even, odd | <u>*to list both, leave it blank*</u>).
 
 ## Examples
 List all todos:
@@ -41,6 +41,11 @@ toolbox todos list -t complete
 List odd-numbered incomplete todos:
 ```
 toolbox todos list -t incomplete -f odd
+```
+
+List even-numbered 5 todos:
+```
+toolbox todos list -f even -c 5
 ```
 
 # For local setup
