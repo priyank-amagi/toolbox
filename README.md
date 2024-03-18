@@ -1,33 +1,19 @@
 # Toolbox CLI
 Toolbox is a command-line interface (CLI) tool designed to help you manage and organize your tasks efficiently. It provides a set of commands to handle various things effectively.
 
-# Installation
-To install Toolbox, follow these steps:
+# Installation (using binary)
+- Linux
+  - [linux-amd64](https://github.com/priyank-amagi/toolbox/releases/download/v0.0.1/toolbox-linux-amd64)
+  - [linux-386](https://github.com/priyank-amagi/toolbox/releases/download/v0.0.1/toolbox-linux-386)
+- MacOS
+  - [macos-amd64](https://github.com/priyank-amagi/toolbox/releases/download/v0.0.1/toolbox-macos-amd64)
+- Windows
+  - [windows-amd64](https://github.com/priyank-amagi/toolbox/releases/download/v0.0.1/toolbox-windows-amd64.exe)
+  - [windows-386](https://github.com/priyank-amagi/toolbox/releases/download/v0.0.1/toolbox-windows-386.exe)
 
-Clone the repository to your local machine:
-```
-git clone https://github.com/priyank-amagi/toolbox.git
-```
-
-Navigate to the Toolbox directory:
-```
-cd toolbox
-```
-
-Build the CLI tool:
-```
-go build -o bin/toolbox (with GOOS=linux GOARCH=amd64 based on your host OS and Arch)
-```
-
-Set an environment variable:
+NOTE: Please set the environment variables as belows, to use the CLI
 ```
 JSON_API_HOST=https://jsonplaceholder.typicode.com
-```
-
-Or 
-Simply install using
-```
-go install github.com/priyank-amagi/toolbox
 ```
 
 # Usage
@@ -55,4 +41,22 @@ toolbox todos list -t complete
 List odd-numbered incomplete todos:
 ```
 toolbox todos list -t incomplete -f odd
+```
+
+# For local setup
+To install Toolbox, follow these steps:
+
+Clone the repository to your local machine:
+```
+git clone https://github.com/priyank-amagi/toolbox.git
+```
+
+Navigate to the Toolbox directory:
+```
+cd toolbox
+```
+
+Build the CLI tool:
+```
+go build -o bin/toolbox (with GOOS=linux GOARCH=amd64 based on your host OS and Arch)
 ```
